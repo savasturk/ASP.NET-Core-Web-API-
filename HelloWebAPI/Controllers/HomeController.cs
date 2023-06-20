@@ -13,7 +13,7 @@ namespace HelloWebAPI.Controllers
             var result = new ResponseModel()
             {
                 HttpStatus = 200,
-                Message = "Hello ASP.NET Core Web API."
+                Message = "Hello ASP.NET Core Web API Project."
             };
             return Ok(result);
         }
