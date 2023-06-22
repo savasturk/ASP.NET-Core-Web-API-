@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "hello_world_api_ui", "hello
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "hello_world_cli", "hello_world_cli\hello_world_cli.csproj", "{684F03DE-B162-47FE-A4A3-B9D36A3D04FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWebAPI", "HelloWebAPI\HelloWebAPI.csproj", "{998D91B6-DEAA-4F6F-BB9A-F624CA52C0B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloWebAPI", "HelloWebAPI\HelloWebAPI.csproj", "{998D91B6-DEAA-4F6F-BB9A-F624CA52C0B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductApp", "ProductApp\ProductApp.csproj", "{401595F1-EF5A-402A-83DC-F2DC26DE1D41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductApp", "ProductApp\ProductApp.csproj", "{401595F1-EF5A-402A-83DC-F2DC26DE1D41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bookDemo", "bookDemo\bookDemo.csproj", "{04631232-C98B-4548-A0B2-74B92D7ADDF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{401595F1-EF5A-402A-83DC-F2DC26DE1D41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{401595F1-EF5A-402A-83DC-F2DC26DE1D41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{401595F1-EF5A-402A-83DC-F2DC26DE1D41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04631232-C98B-4548-A0B2-74B92D7ADDF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04631232-C98B-4548-A0B2-74B92D7ADDF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04631232-C98B-4548-A0B2-74B92D7ADDF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04631232-C98B-4548-A0B2-74B92D7ADDF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
