@@ -1,6 +1,7 @@
 ﻿using bookDemo.Data;
 using bookDemo.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 namespace bookDemo.Controllers
@@ -46,6 +47,74 @@ namespace bookDemo.Controllers
 
                return BadRequest(ex.Message);
             }
+        }
+
+        [HttpPut("{id:int}")]
+        public IActionResult UpdateOneBook([FromRoute(Name ="id")]int id, [FromBody]Book book)
+        {
+            // check book?
+            var entity = ApplicationContext
+                .Books
+                .Find(b => b.Id.Equals(id));
+            if(entity is null)
+            {
+                return NotFound(); // 404
+            }
+
+            // check id
+            if(id != book.Id)
+            {
+                return BadRequest(); // 400
+                
+            }
+            ApplicationContext.Books.Remove(entity);
+            book.Id = entity.Id;
+            ApplicationContext.Books.Add(book);
+            return Ok(book);
+        }
+
+        [HttpDelete]
+        public IActionResult DeleteAllBooks()
+        {
+            ApplicationContext.Books.Clear();
+            return NoContent(); // 204
+
+        }
+
+        [HttpDelete("{id:int}")]
+        public IActionResult DeleteOneBooks([FromRoute(Name = "id")] int id)
+        {
+            var entity = ApplicationContext
+                .Books
+                .Find(b => b.Id.Equals(id));
+
+            if(entity is null)
+            {
+                return NotFound(
+                    new
+                    {
+                        statusCode = 404,
+                        message = "Not found."
+                    }); // 404
+            }
+
+            ApplicationContext.Books.Remove(entity);
+            return NoContent();
+
+        }
+
+        [HttpPatch("{id:int}")]
+        public IActionResult PartiallyUpdateOneBook([FromRoute(Name = "id")] int id,
+            [FromBody] JsonPatchDocument<Book> bookPatch)
+        {
+            // check entitiy
+            var entity = ApplicationContext.Books.Find(
+                b => b.Id.Equals(id));
+            if (entity is null)
+                return NotFound(); // 404
+
+            bookPatch.ApplyTo(entity);
+            return NoContent(); // 204
         }
     }
 }
